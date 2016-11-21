@@ -15,7 +15,7 @@
     
     <Grid> <!-- Skapar upp en grid -->
         <Grid.RowDefinitions> <!-- Lägger till två rader i en Grid -->
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*" /> <!-- Asterisk (*) fyller ut resterande utrymme i en kontroll som inte tas upp av annat -->
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         
@@ -24,12 +24,12 @@
             <ListView.ItemTemplate> <!-- En itemtemplate är en template för hur varje item i Units skall visas. Se detta som en foreach typ -->
                 <DataTemplate> <!-- det är av typen data, finns flera, men typ bara denna jag kört med -->
                     <StackPanel Orientation="Horizontal"> 
-                        <TextBlock Text="{Binding Name, StringFormat=' {0} - ' }"/> <!-- namnet på Uniten -->
+                        <TextBlock Text="{Binding Name, StringFormat=' {0} - ' }"/> <!-- namnet på Uniten, StringFormat fungerar typ som string.Format -->
                         <TextBlock Text="{Binding RSSI}" /> <!-- RSSI på uniten -->
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="1" Command="{Binding AddAnotherUnitCommand}" Content="Lägg till ännu en unit"/>
+        <Button Grid.Row="1" Command="{Binding AddAnotherUnitCommand}" Content="Lägg till ännu en unit"/> <!-- AddAnotherUnitCommand binds till en relaycommand i vymodellen -->
     </Grid>
 </UserControl>

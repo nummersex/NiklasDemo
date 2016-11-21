@@ -15,12 +15,16 @@ namespace NiklasDemo.ViewModels
         private ObservableCollection<Unit> _units;
         private ICommand _addAnotherUnitCommand;
 
-
         public ObservableCollection<Unit> Units
         {
             get { return _units; }
             set { _units = value; NotifyPropertyChanged(); } // NotifyPropertyChanged säger till vyn att något har uppdaterats och att den behöver laddas om
         }
+
+        // "event" som binds mot vyn. Typ som ett vanligt Click i vanlig windows form-kodning. Det görs på detta sättet så att man ska slippa codebehind i vyn.
+        // en ICommand, eller som i vårat fall en RelayCommand har två properties, Execute och CanExecute.
+        // Execute är en Action som kör det du vill ska köras. Funkar smidigt med lambdauttryck. CanExecute är ifall du får lov att köra din action eller inte.
+        // Ex: Har du access till databasen för tillfället? Inte? Då får du inte köra.
 
         public ICommand AddAnotherUnitCommand
         {
