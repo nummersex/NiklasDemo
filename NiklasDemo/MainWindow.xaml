@@ -4,8 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NiklasDemo"
+        xmlns:views="clr-namespace:NiklasDemo.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    
-    <!-- denna används inte just nu, men annars brukar man lägga en kontroller som håller koll på laddade vyer här, typ tabkontroller eller whatever -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Niklas Bluetooths Galore" TextAlignment="Center"></TextBlock>
+
+        <views:BlueToothView Grid.Row="1" />
+    </Grid>
 </Window>
