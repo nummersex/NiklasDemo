@@ -13,8 +13,8 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Niklas Bluetooths Galore" TextAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="0" Text="Niklas Bluetooths Galore" TextAlignment="Center" FontSize="18"></TextBlock>
 
-        <views:BlueToothView Grid.Row="1" />
+        <views:BlueToothView Grid.Row="1" /> <!-- Notera views här. Vi lägger till ett namespace på rad 7. -->
     </Grid>
 </Window>
