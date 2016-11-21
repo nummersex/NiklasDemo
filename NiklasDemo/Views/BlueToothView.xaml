@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="NiklasDemo.Views.BlueToothView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NiklasDemo.Views"
+      xmlns:vm="clr-namespace:NiklasDemo.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300">
+    
+    <!-- Här sätter vi datacontexten för vyn. Det kan göras på flera sätt, men detta är ett lätt sätt att göra det på -->
+    <UserControl.DataContext>
+        <vm:BlueToothViewModel />
+    </UserControl.DataContext>
+    
+    <Grid> <!-- Skapar upp en grid -->
+        <Grid.RowDefinitions> <!-- Lägger till två rader i en Grid -->
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        
+        <!-- Vi skapar upp en ListVy där vi ska visa våra fina units -->
+        <ListView Grid.Row="0" ItemsSource="{Binding Units}"> <!-- här säger vi till vyn att den ska hämta en lista av units ifrån datakontexten som är en BlueToothViewModel -->
+            <ListView.ItemTemplate> <!-- En itemtemplate är en template för hur varje item i Units skall visas. Se detta som en foreach typ -->
+                <DataTemplate> <!-- det är av typen data, finns flera, men typ bara denna jag kört med -->
+                    <StackPanel Orientation="Horizontal"> 
+                        <TextBlock Text="{Binding Name, StringFormat=' {0} - ' }"/> <!-- namnet på Uniten -->
+                        <TextBlock Text="{Binding RSSI}" /> <!-- RSSI på uniten -->
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="1" Command="{Binding AddAnotherUnitCommand}" Content="Lägg till ännu en unit"/>
+    </Grid>
+</UserControl>

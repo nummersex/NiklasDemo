@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:NiklasDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    
+    <!-- denna används inte just nu, men annars brukar man lägga en kontroller som håller koll på laddade vyer här, typ tabkontroller eller whatever -->
 </Window>
